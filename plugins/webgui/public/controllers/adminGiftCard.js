@@ -28,7 +28,7 @@ app.controller('AdminGiftCardController', ['$scope', '$http', 'addGiftCardBatchD
 ]).controller('AdminGiftCardBatchDetailsController', ['$scope', '$http', '$stateParams', 'confirmDialog', 'alertDialog',
   ($scope, $http, $stateParams, confirmDialog, alertDialog) => {
     const batchNumber = $stateParams.batchNumber;
-    $scope.setTitle(`{{ '充值码' | translate }} [${batchNumber}]`);
+    $scope.setTitle(`充值码 [${batchNumber}]`);
     $scope.setMenuButton('arrow_back', 'admin.listGiftCardBatch');
     const showDetails = () => {
       $http.get(`/api/admin/giftcard/details/${batchNumber}`).then(result => {
@@ -42,7 +42,7 @@ app.controller('AdminGiftCardController', ['$scope', '$http', 'addGiftCardBatchD
       });
     };
     $scope.showPassword = (id, password) => {
-      alertDialog.show(`{{ '卡号：' | translate }}${id}{{ '，密码：' | translate }}${password}`, '确定');
+      alertDialog.show(`卡号：${id}，密码：${password}`, '确定');
     };
     showDetails();
 
